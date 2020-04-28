@@ -42,3 +42,14 @@ WHERE TABLE_NAME LIKE 'ANY_PATERN%' #
 AND OWNER='TABLE_SCHEMA'
 ORDER BY TABLE_NAME,COLUMN_ID;
 ```
+
+## You can modify the variables 
+```python
+  file_template.output_directory = current_path+'\OUTPUT'                    #Change output folder
+  file_template.output_file_name_fn = lambda v: v[0]['TABLE_NAME']+'.sql'    #Change output scripts name
+  file_template.data_file = current_path+'\\table_metadata.csv'              #Change meta-data file_name/directory
+  file_template.template_directory = current_path+'\TEMPLATES'               #Change templates folder
+  file_template.template_name = 'DDL_METADATA.sql'                           #Chante template
+  file_template.format = file_template.CSV                                   
+  file_template.run_single_file(group_by=lambda row:row["TABLE_NAME"])      
+```
