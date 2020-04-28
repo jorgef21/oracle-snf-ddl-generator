@@ -3,7 +3,8 @@ DDL Generator using metadata
 
 # Requirements:
 - CSV file as input with headers:
-TABLE_NAME	COLUMN_NAME	DATA_TYPE	DATA_LENGTH
+TABLE_NAME | COLUMN_NAME | DATA_TYPE | DATA_LENGTH
+---------- | ------------- | ------------- | -------------
 EMPLOYEE    ID          NUMBER      22
 EMPLOYEE    NAME        VARCHAR     255
 EMPLOYEE    LAST_NAME   VARCHAR     255
