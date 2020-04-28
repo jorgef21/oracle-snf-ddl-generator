@@ -38,6 +38,8 @@ def main():
     file_template.template_directory = "r'"+current_path+'\TEMPLATES'
     file_template.template_name = 'DDL_METEDATA.csv'
     file_template.format = file_template.CSV
+    file_template.run_single_file(group_by=lambda row:row["TABLE_NAME"])
+    
     print(file_template.template_directory)
     print(file_template.data_file)
     print(file_template.output_directory)
