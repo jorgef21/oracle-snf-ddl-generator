@@ -2,6 +2,9 @@
 DDL Generator using metadata
 - Using jinja template
 - Using metadata package
+```shell
+python ddl_generator.py
+```
 
 # Requirements:
 - CSV file as input with headers:
