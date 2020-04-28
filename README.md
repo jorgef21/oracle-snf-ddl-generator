@@ -33,3 +33,11 @@ CREATE TABLE EMPLOYEE(
     ,STATUS VARCHAR
 );  
 ```
+
+### You can download a CSV files with metadata-info from OracleDB with the following query
+```SQL
+SELECT TABLE_NAME,COLUMN_NAME,DATA_TYPE,DATA_LENGTH
+FROM ALL_TAB_COLUMNS
+WHERE TABLE_NAME LIKE 'SALES%'
+ORDER BY COLUMN_ID;
+```
