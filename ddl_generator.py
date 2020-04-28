@@ -32,11 +32,11 @@ def count_files():
 def main():
     current_path = os.getcwd()
     file_template = file_based_template.file_based_template()
-    file_template.output_directory = "r'"+current_path+'\OUTPUT'
+    file_template.output_directory = current_path+'\OUTPUT'
     file_template.output_file_name_fn = lambda v: v[0]['TABLE_NAME']+'.sql'
-    file_template.data_file = "r'"+current_path+'\\table_metadata.csv'
-    file_template.template_directory = "r'"+current_path+'\TEMPLATES'
-    file_template.template_name = 'DDL_METEDATA.csv'
+    file_template.data_file = current_path+'\\table_metadata.csv'
+    file_template.template_directory = current_path+'\TEMPLATES'
+    file_template.template_name = 'DDL_METADATA.sql'
     file_template.format = file_template.CSV
     file_template.run_single_file(group_by=lambda row:row["TABLE_NAME"])
     
