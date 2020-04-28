@@ -11,7 +11,7 @@ EMPLOYEE   |  NAME       |   VARCHAR |        255
 EMPLOYEE   |  LAST_NAME  |   VARCHAR |        255
 EMPLOYEE   |  DOB        |   DATE    |        7
 
-- .sql Template for the script: 
+- .sql Template for the script(folder TEMPLATEs): 
 ```SQL
 CREATE TABLE {{ data[0].TABLE_NAME }}(    
     {% for col in data %}{{ col.COLUMN_NAME }} {% if col.DATA_TYPE == "BLOB" %}BINARY{% elif col.DATA_TYPE == "CLOB" %}VARCHAR{% elif col.DATA_TYPE == "DATE" %}TIMESTAMP_NTZ(9)
