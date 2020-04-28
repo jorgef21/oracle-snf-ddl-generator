@@ -22,3 +22,14 @@ CREATE TABLE {{ data[0].TABLE_NAME }}(
     {% elif col.DATA_TYPE == "CHAR" %}VARCHAR{% elif col.DATA_TYPE == "RAW" %}BINARY{% elif col.DATA_TYPE == "ROWID" %}VARCHAR{% endif %}{% if not loop.last %},{% endif %}{% endfor %}
 );  
 ```
+
+### Output script would be(in folder output) EMPLOYEE.sql:
+```SQL
+CREATE TABLE EMPLOYEE(    
+    ID FLOAT
+    ,NAME VARCHAR(255)
+    ,LAST_NAME VARCHAR(255)
+    ,DOB TIMESTAMP_NTZ(9)
+    ,STATUS VARCHAR
+);  
+```
