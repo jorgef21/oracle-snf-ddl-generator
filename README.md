@@ -1,5 +1,7 @@
 # oracle-snf-ddl-generator
 DDL Generator using metadata
+- Using jinja template
+- Using metadata package
 
 # Requirements:
 - CSV file as input with headers:
@@ -38,7 +40,7 @@ CREATE TABLE EMPLOYEE(
 ```SQL
 SELECT TABLE_NAME,COLUMN_NAME,DATA_TYPE,DATA_LENGTH
 FROM ALL_TAB_COLUMNS
-WHERE TABLE_NAME LIKE 'ANY_PATERN%' #
+WHERE TABLE_NAME LIKE 'ANY_PATTERN%' #
 AND OWNER='TABLE_SCHEMA'
 ORDER BY TABLE_NAME,COLUMN_ID;
 ```
@@ -49,7 +51,7 @@ ORDER BY TABLE_NAME,COLUMN_ID;
   file_template.output_file_name_fn = lambda v: v[0]['TABLE_NAME']+'.sql'    #Change output scripts name
   file_template.data_file = current_path+'\\table_metadata.csv'              #Change meta-data file_name/directory
   file_template.template_directory = current_path+'\TEMPLATES'               #Change templates folder
-  file_template.template_name = 'DDL_METADATA.sql'                           #Chante template
+  file_template.template_name = 'DDL_METADATA.sql'                           #Change template
   file_template.format = file_template.CSV                                   
   file_template.run_single_file(group_by=lambda row:row["TABLE_NAME"])      
 ```
